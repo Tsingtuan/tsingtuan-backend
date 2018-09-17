@@ -11,9 +11,9 @@ app.use(bodyParser.json({
   limit: '100mb'
 }));
 
-var port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 var router = require('./routers');
 
 app.use('/api', router);
-app.listen(port);
+app.listen(port,()=>console.log('Express listening on port 5000'));
