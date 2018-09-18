@@ -8,8 +8,9 @@ let JsonBack=require("../utils/JsonBack");
 var universityCollection = {
   insertIntoUniversity:async function(req,res){
       console.log(req.body);
-      let {name,university_code}=req.body;
-      let sql = "INSERT INTO university (name,university_code) VALUES (?,?)";
+      let name = req.params.name;
+      let university_code = req.params.university_code;
+      let sql = "INSERT INTO university (name,university_code) VALUES ('" + name + "', '" + university_code + "')";
       await pool.query(sql,[name,university_code]).then((data)=>{
           if(data){
               JsonBack(true,"添加学校成功",null,res);
@@ -40,7 +41,7 @@ var universityCollection = {
         }
     })
   },
-  getAllUniversity: async (req,res)=> {
+  getAllUniversity: async function(req,res) {
     let sql = "SELECT * FROM university";
     await pool.query(sql).then(((data)=>{
         if(data){
