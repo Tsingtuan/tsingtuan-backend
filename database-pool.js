@@ -12,6 +12,7 @@ async function query(sql,params) {
     connection.release();
     return result;
   } catch (e) {
+
     console.log(e);
   }
 }
