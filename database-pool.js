@@ -1,9 +1,9 @@
 var mysql = require('promise-mysql');
 var pool = mysql.createPool({
-  host: '127.0.0.1',
-  user: 'root',
-  password: 'qwe',
-  database: 'tsingtuan'
+  host: 'sql9.freemysqlhosting.net',
+  user: 'sql9258655',
+  password: 'cZnqPShHDQ',
+  database: 'sql9258655'
 });
 async function query(sql,params) {
   try {

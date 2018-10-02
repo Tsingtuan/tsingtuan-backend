@@ -7,7 +7,6 @@ let JsonBack=require("../utils/JsonBack");
 */
 var universityCollection = {
   insertIntoUniversity:async function(req,res){
-      console.log(req.body);
       let {name,university_code}=req.body;
       let sql = "INSERT INTO university (name,university_code) VALUES (?,?)";
       await pool.query(sql,[name,university_code]).then((data)=>{
