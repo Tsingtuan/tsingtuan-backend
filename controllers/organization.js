@@ -49,6 +49,20 @@ var organizationCollection = {
                 JsonBack(false,"获取全部组织信息失败",null,res);
             }
         })
+    },
+    getByUniversityID: async function (req, res) {
+        let {university_code} = req.body;
+        let sql = `SELECT * FROM organization where university_code=?`;
+        await pool.query(sql, [university_code]).then((data) => {
+            if (data) {
+                JsonBack(true, "获取指定院校组织信息成功", data, res);
+            }
+            else {
+                JsonBack(false, "获取指定院校组织信息失败", null, res);
+            }
+        }).catch((err) => {
+            console.error(err);
+        })
     }
 };
 
