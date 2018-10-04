@@ -1,6 +1,6 @@
 let JsonBack = require("../utils/JsonBack");
 let studentDao=require("../dao/studentDao");
-let positionDao=require("../dao/positionDao");
+let roleDao=require("../dao/roleDao");
 let universityDao=require("../dao/universityDao");
 let organizationDao=require("../dao/organizationDao");
 let loginControllerCollection= {
@@ -11,8 +11,8 @@ let loginControllerCollection= {
             let resultUniversity=universityDao.insertIntoUniversity(req.body.university);
             let resultOrganization=organizationDao.insertIntoOrganization(req.body.organization);
             let resultStudent=studentDao.insertIntoStudent(req.body.student);
-            let resultPosition=positionDao.insertIntoPosition(req.body.position);
-            if(resultUniversity&&resultOrganization&&resultStudent&&resultPosition){
+            let resultRole=roleDao.insertIntoRole(req.body.role);
+            if(resultUniversity&&resultOrganization&&resultStudent&&resultRole){
                 JsonBack(true,"插入信息成功",null,res);
             }else{
                 JsonBack(false,"插入信息失败",null,res);
@@ -21,8 +21,8 @@ let loginControllerCollection= {
         }else if(req.body.organization){
                 let resultOrganization=organizationDao.insertIntoOrganization(req.body.organization);
                 let resultStudent=studentDao.insertIntoStudent(req.body.student);
-                let resultPosition=positionDao.insertIntoPosition(req.body.position);
-                if(resultOrganization&&resultStudent&&resultPosition){
+                let resultRole=roleDao.insertIntoRole(req.body.role);
+                if(resultOrganization&&resultStudent&&resultRole){
                     JsonBack(true,"插入信息成功",null,res);
                 }else {
                     JsonBack(false, "插入信息失败", null, res);
@@ -30,8 +30,8 @@ let loginControllerCollection= {
         //学校存在，社团存在，插入社员信息。
         }else{
                 let resultStudent=studentDao.insertIntoStudent(req.body.student);
-                let resultPosition=positionDao.insertIntoPosition(req.body.position);
-                if(resultStudent&&resultPosition){
+                let resultRole=roleDao.insertIntoRole(req.body.role);
+                if(resultStudent&&resultRole){
                     JsonBack(true,"插入信息成功",null,res);
                 }else{
                     JsonBack(false,"插入信息失败",null,res);
