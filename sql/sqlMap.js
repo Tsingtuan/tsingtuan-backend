@@ -6,11 +6,11 @@ let sqlMap={
         getAllStudent:'SELECT * FROM student',
         getStudentAllInfo:'SELECT student.name as sname,university.name as uname,organization.name as oname,position.name as pname FROM student,university,organization,position WHERE student.wechat_id = position.wechat_id AND position.organization_id = organization.organization_id AND organization.university_code = university.university_code AND student.wechat_id=?'
     },
-    Position:{
-        insertIntoPosition:'INSERT INTO status (organization_id,division,name,wechat_id) VALUES (?,?,?,?)',
-        deletePosition:'DELETE FROM status WHERE id=?',
-        updatePosition:'UPDATE status SET organization_id=?,division=?,name=?,wechat_id=? WHERE id=?',
-        getAllPosition:'SELECT * FROM status'
+    Role:{
+        insertIntoRole:'INSERT INTO role (organization_id,division,name,wechat_id) VALUES (?,?,?,?)',
+        deleteRole:'DELETE FROM role WHERE id=?',
+        updateRole:'UPDATE role SET organization_id=?,division=?,name=?,wechat_id=? WHERE id=?',
+        getAllRole:'SELECT * FROM role'
     },
     University:{
         insertIntoUniversity:'INSERT INTO university (name,university_code) VALUES (?,?)',
